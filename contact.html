@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Contact — Portofolio</title>
+<link rel="stylesheet" href="styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<header class="site-header">
+<div class="container nav-row">
+<a class="logo" href="index.html">Nama Anda</a>
+<nav>
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="projects.html">Projects</a>
+<a href="contact.html">Contact</a>
+</nav>
+</div>
+</header>
+
+
+<main class="container contact">
+<h2>Hubungi Saya</h2>
+<p>Isi formulir berikut dan saya akan membalas secepatnya.</p>
+
+
+<form id="contactForm" action="#" method="post" onsubmit="return handleSubmit(event)">
+<label for="name">Nama</label>
+<input id="name" name="name" type="text" required>
+
+
+<label for="email">Email</label>
+<input id="email" name="email" type="email" required>
+
+
+<label for="message">Pesan</label>
+<textarea id="message" name="message" rows="6" required></textarea>
+
+
+<button type="submit" class="btn">Kirim</button>
+</form>
+
+
+<p id="formMsg" class="muted"></p>
+</main>
+
+
+<footer class="site-footer">
+<div class="container">© <span id="year"></span> Nama Anda</div>
+</footer>
+
+
+<script>
+function handleSubmit(e){
+e.preventDefault();
+const name = document.getElementById('name').value.trim();
+const email = document.getElementById('email').value.trim();
+const message = document.getElementById('message').value.trim();
+if(!name || !email || !message) return false;
+// Untuk demo, kita hanya tampilkan pesan sukses. Integrasi backend diperlukan untuk kirim email nyatanya.
+document.getElementById('formMsg').textContent = 'Terima kasih, pesan Anda telah dikirim (demo).';
+e.target.reset();
+return false;
+}
+</script>
+</body>
+</html>
